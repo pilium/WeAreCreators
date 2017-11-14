@@ -1,0 +1,89 @@
+@import "fonts"
+@import "libs"
+@import "base"
+@import "vars"
+
+.grid
+	display: grid
+
+.main-header
+	min-height: 100vh
+	background-size: cover
+	background-position: center
+	position: relative
+	align-content: center
+	&::before
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: $dark
+		opacity: .92
+
+.header-content
+	z-index: 1
+	color: #fff
+	text-align: center
+	padding: 60px $gutter
+	h1
+		font-size: 60px
+		font-family: intro-grid, sans-serif
+		font-weight: normal
+		margin: 20px 0
+		line-height: 1.5
+	.button
+		margin: 10px
+
+.button
+	display: inline-block
+	border: none
+	color: #fff
+	text-decoration: none
+	background-color: $accent
+	padding: 10px 60px
+	font-size: 20px
+	font-weight: 800
+	border-radius: 2px
+	text-align: center
+	position: relative
+	outline: none
+	transition: background-color .1s ease
+	cursor: pointer
+	&::after
+		transition: background-color .2s ease
+		position: absolute
+		content: ''
+		height: 4px
+		bottom: 0
+		width: 100%
+		background-color: darken($accent, 50%)
+		opacity: .18
+		border-bottom-left-radius: 2px
+		border-bottom-right-radius: 2px
+		left: 0
+	&:focus, &:hover
+		text-decoration: none
+		color: #fff
+	&:hover
+		background-color: lighten($accent, 5%)
+		&::after
+			opacity: .22
+	&:active
+		background-color: darken($accent, 5%)
+		&::after
+			opacity: .32
+
+	&.button-gray
+		background-color: $gray
+		&::after
+			background-color: darken($gray, 15%)
+		&:hover
+			background-color: lighten($gray, 5%)
+			&::after
+				opacity: .22
+		&:active
+			background-color: darken($gray, 5%)
+			&::after
+				opacity: .32

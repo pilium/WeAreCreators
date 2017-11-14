@@ -65,7 +65,7 @@ return gulp.src('app/sass/main.sass')
 
 
 // Watcher
-gulp.task('watch', ['pug', 'sass', 'js', 'browser-sync'], function() {
+gulp.task('watch', ['pug', 'sass', 'browser-sync'], function() {
 gulp.watch('app/sass/**/*.sass', ['sass']);
 gulp.watch('app/pug/**/*.pug', ['pug']);
 gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['js']);
@@ -104,7 +104,7 @@ gulp.task('sprite', ['cleansprite', 'spritemade']);
 
 
 // На Production
-gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], function() {
+gulp.task('build', ['removedist', 'imagemin', 'sass'], function() {
 
 var buildFiles = gulp.src([
   'app/*.html',
@@ -117,10 +117,6 @@ var buildAccess = gulp.src([
 var buildCss = gulp.src([
   'app/css/main.min.css',
 ]).pipe(gulp.dest('dist/css'));
-
-var buildJs = gulp.src([
-  'app/js/scripts.min.js',
-]).pipe(gulp.dest('dist/js'));
 
 var buildFonts = gulp.src([
   'app/fonts/**/*',
