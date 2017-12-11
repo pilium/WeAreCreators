@@ -30,17 +30,16 @@ return 'Message to the notifier: ' + error.message;
 	  .pipe(gulp.dest('app'));
 });
 
-// // Работа с JS
-// gulp.task('js', function() {
-// return gulp.src([
-//   'app/js/common.js' // Всегда в конце
-// ])
-// 	  .pipe(plumber())
-// 	  .pipe(concat('scripts.min.js'))
-// 	  .pipe(uglify()) // Минимизировать весь js (на выбор)
-// 	  .pipe(gulp.dest('app/js'))
-// 	  .pipe(browserSync.reload({stream: true}));
-// });
+// Работа с JS
+gulp.task('js', function() {
+return gulp.src([
+  'app/js/common.js' // Всегда в конце
+])
+	  .pipe(plumber())
+	  .pipe(uglify()) // Минимизировать весь js (на выбор)
+	  .pipe(gulp.dest('app/js'))
+	  .pipe(browserSync.reload({stream: true}));
+});
 
 
 gulp.task('browser-sync', function() {
@@ -65,7 +64,7 @@ return gulp.src('app/sass/main.sass')
 
 
 // Watcher
-gulp.task('watch', ['pug', 'sass', 'browser-sync'], function() {
+gulp.task('watch', ['pug', 'sass','js', 'browser-sync'], function() {
 gulp.watch('app/sass/**/*.sass', ['sass']);
 gulp.watch('app/pug/**/*.pug', ['pug']);
 gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['js']);
@@ -108,6 +107,10 @@ gulp.task('build', ['removedist', 'imagemin', 'sass'], function() {
 
 var buildFiles = gulp.src([
   'app/*.html',
+]).pipe(gulp.dest('dist'));
+
+var buildFiles = gulp.src([
+  'app/*.js',
 ]).pipe(gulp.dest('dist'));
 
 var buildAccess = gulp.src([

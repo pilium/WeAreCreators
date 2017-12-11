@@ -268,4 +268,59 @@ input, textarea
 	color: #494D50
 	margin-top: 20px
 
+// MODAL
+.modals 
+	color: #fff
+	display: none
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	z-index: 999999
+
+	.modal-content 
+		opacity: 1
+		transition: 0.5s ease-in 1.5s
+    
+  
+
+.modal-content 
+	background: hsl(250,30%,10%)
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	opacity: 0
+	z-index: 1
+	transition: 0.5s 0s
+	display: flex
+	align-items: center
+	justify-content: center
+
+
+.modal-wrap 
+	flex: 1
+	width: 100%
+	max-width: 50em
+
+.close
+	background: linear-gradient(hsl(10,95%,59%),hsl(360,95%,59%))
+	border: 1px solid hsl(360,95%,59%)
+	border-bottom: 4px solid hsl(360,95%,43%)
+	text-shadow: 1px 1px 0 hsl(360,95%,43%)
+	border-radius: 2px
+	color: #fff
+	font-weight: 600
+	margin-top: 0.5em
+	padding: 0.5em 1em 0.4em
+	transition: 0.3s
+
+	&:hover 
+		filter: brightness(90%) contrast(120%)
+
+	&:focus 
+		box-shadow: 0 0 10px hsl(10,95%,59%)
+
 @import 'media'
