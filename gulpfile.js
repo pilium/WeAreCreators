@@ -13,6 +13,7 @@ spritesmith = require('gulp.spritesmith'),
 cache = require('gulp-cache'),
 autoprefixer = require('gulp-autoprefixer'),
 ftp = require('vinyl-ftp'),
+// uglify = require('uglify'),
 notify = require('gulp-notify');
 
 // Скрипты проекта
@@ -36,7 +37,7 @@ return gulp.src([
   'app/js/common.js' // Всегда в конце
 ])
 	  .pipe(plumber())
-	  .pipe(uglify()) // Минимизировать весь js (на выбор)
+	  // .pipe(uglify()) // Минимизировать весь js (на выбор)
 	  .pipe(gulp.dest('app/js'))
 	  .pipe(browserSync.reload({stream: true}));
 });
